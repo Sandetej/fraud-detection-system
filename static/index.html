@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="header-title">🛡️ Fraud Detection System</h1>
+                <nav class="header-nav">
+                    <button class="nav-btn active" data-tab="dashboard">Dashboard</button>
+                    <button class="nav-btn" data-tab="analytics">Analytics</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <!-- Statistics Cards -->
+                <section class="stats-section">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📊</div>
+                            <div class="stat-info">
+                                <h3 class="stat-value" id="total-transactions">118,929</h3>
+                                <p class="stat-label">Total Transactions</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🚨</div>
+                            <div class="stat-info">
+                                <h3 class="stat-value" id="fraud-detected">1,367</h3>
+                                <p class="stat-label">Fraud Detected</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-info">
+                                <h3 class="stat-value" id="accuracy">99.4%</h3>
+                                <p class="stat-label">Accuracy</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Transaction Analysis Form -->
+                <section class="analysis-section">
+                    <div class="form-container">
+                        <h2 class="section-title">🔍 Transaction Analysis</h2>
+                        <form id="fraud-form" class="fraud-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="step">Transaction Step</label>
+                                    <input type="number" id="step" name="step" min="0" value="1" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="amount">Amount ($)</label>
+                                    <input type="number" id="amount" name="amount" min="0" step="0.01" value="100.00" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="age">Age Group</label>
+                                    <select id="age" name="age" required>
+                                        <option value="">Select Age Group</option>
+                                        <option value="0">0 - Under 18</option>
+                                        <option value="1">1 - 18-25</option>
+                                        <option value="2">2 - 26-35</option>
+                                        <option value="3">3 - 36-45</option>
+                                        <option value="4">4 - 46-55</option>
+                                        <option value="5">5 - 56-65</option>
+                                        <option value="6">6 - Over 65</option>
+                                        <option value="U">U - Unknown</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" name="gender" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="E">Enterprise</option>
+                                        <option value="U">Unknown</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="merchant">Merchant</label>
+                                    <select id="merchant" name="merchant" required>
+                                        <option value="">Select Merchant</option>
+                                        <option value="M348934600">M348934600 - Transportation Co</option>
+                                        <option value="M1823072687">M1823072687 - Health Services</option>
+                                        <option value="M480139044">M480139044 - Tech Store</option>
+                                        <option value="M980657600">M980657600 - General Retail</option>
+                                        <option value="M2080738506">M2080738506 - Travel Agency</option>
+                                        <option value="M1841913607">M1841913607 - Sports Shop</option>
+                                        <option value="M749144843">M749144843 - Fashion Store</option>
+                                        <option value="M2018384601">M2018384601 - Restaurant</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="category">Category</label>
+                                    <select id="category" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="es_transportation">Transportation</option>
+                                        <option value="es_sportsandtoys">Sports & Toys</option>
+                                        <option value="es_health">Health</option>
+                                        <option value="es_fashion">Fashion</option>
+                                        <option value="es_bars">Bars</option>
+                                        <option value="es_hyper">Hypermarket</option>
+                                        <option value="es_food">Food</option>
+                                        <option value="es_home">Home</option>
+                                        <option value="es_contents">Contents</option>
+                                        <option value="es_tech">Technology</option>
+                                        <option value="es_travel">Travel</option>
+                                        <option value="es_wellnessandbeauty">Wellness & Beauty</option>
+                                        <option value="es_otherservices">Other Services</option>
+                                        <option value="es_hotelservices">Hotel Services</option>
+                                        <option value="es_barsandrestaurants">Bars & Restaurants</option>
+                                        <option value="es_leisure">Leisure</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="analyze-btn" id="analyze-btn">
+                                <span class="btn-text">🔍 Analyze Transaction</span>
+                                <span class="btn-loading" style="display: none;">⏳ Analyzing...</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Results Display -->
+                    <div class="results-container" id="results-container" style="display: none;">
+                        <h3 class="results-title">📊 Analysis Results</h3>
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="result-header">
+                                    <h4>Fraud Probability</h4>
+                                    <div class="probability-circle" id="probability-circle">
+                                        <span class="probability-text" id="probability-text">0%</span>
+                                    </div>
+                                </div>
+                                <div class="risk-level" id="risk-level">Low Risk</div>
+                            </div>
+                            
+                            <div class="result-card">
+                                <div class="result-header">
+                                    <h4>Risk Assessment</h4>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill" id="confidence-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="confidence-text" id="confidence-text">Confidence: 0%</div>
+                            </div>
+                            
+                            <div class="result-card full-width">
+                                <h4>Recommendation</h4>
+                                <div class="recommendation-text" id="recommendation-text">
+                                    Analysis pending...
+                                </div>
+                            </div>
+                            
+                            <div class="result-card full-width">
+                                <h4>Transaction Details</h4>
+                                <div class="transaction-details" id="transaction-details">
+                                    <p><strong>Transaction ID:</strong> <span id="transaction-id">-</span></p>
+                                    <p><strong>Timestamp:</strong> <span id="timestamp">-</span></p>
+                                    <p><strong>Model Version:</strong> <span id="model-version">-</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Transactions -->
+                <section class="recent-section">
+                    <h2 class="section-title">📋 Recent Transactions</h2>
+                    <div class="table-container">
+                        <table class="transactions-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Amount</th>
+                                    <th>Merchant</th>
+                                    <th>Category</th>
+                                    <th>Risk</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-transactions">
+                                <tr>
+                                    <td>TXN001</td>
+                                    <td>$45.67</td>
+                                    <td>M348934600</td>
+                                    <td>Transportation</td>
+                                    <td><span class="risk-badge low">Low</span></td>
+                                    <td><span class="status-badge approved">Approved</span></td>
+                                </tr>
+                                <tr>
+                                    <td>TXN002</td>
+                                    <td>$156.78</td>
+                                    <td>M1823072687</td>
+                                    <td>Health</td>
+                                    <td><span class="risk-badge medium">Medium</span></td>
+                                    <td><span class="status-badge review">Review</span></td>
+                                </tr>
+                                <tr>
+                                    <td>TXN003</td>
+                                    <td>$892.34</td>
+                                    <td>M480139044</td>
+                                    <td>Technology</td>
+                                    <td><span class="risk-badge high">High</span></td>
+                                    <td><span class="status-badge blocked">Blocked</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div id="analytics" class="tab-content">
+                <section class="analytics-section">
+                    <h2 class="section-title">📈 Model Performance Analytics</h2>
+                    
+                    <div class="charts-grid">
+                        <div class="chart-container">
+                            <h3>Model Metrics</h3>
+                            <canvas id="metricsChart"></canvas>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <h3>Risk Distribution</h3>
+                            <canvas id="riskChart"></canvas>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <h3>Feature Importance</h3>
+                            <canvas id="featuresChart"></canvas>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <h3>Monthly Fraud Trends</h3>
+                            <canvas id="trendsChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
