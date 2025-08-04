@@ -276,12 +276,7 @@ def internal_error(error):
 
 if __name__ == '__main__':
     # Load the fraud detection model on startup
+    port = int(os.environ.get("PORT", 5000))
     load_fraud_model()
+    app.run(host="0.0.0.0", port=port)
     
-    # Run the Flask app
-    print("🚀 Starting Fraud Detection API Server...")
-    print("📊 Dashboard: http://localhost:5000")
-    print("🔗 API Base URL: http://localhost:5000/api/")
-    print("🛡️ Model Status: Loading...")
-    
-    app.run(debug=True, host='0.0.0.0', port=5001)

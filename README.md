@@ -103,7 +103,6 @@ Modern web browser
 ```bash
 # 1. Clone the repository
 git clone https://github.com/Sandetej/fraud-detection-system.git
-cd fraud-detection-system
 
 # 2. Install Python dependencies
 pip install -r requirements.txt
@@ -112,7 +111,7 @@ pip install -r requirements.txt
 python fraud-detection-api.py
 
 # 4. Open your browser
-# Navigate to: http://localhost:5000
+ Navigate to: http://localhost:5000
 ```
 
 ### Usage
@@ -172,67 +171,6 @@ Through this project, I have gained practical experience in:
 4. **Hyperparameter Tuning:** Optimized for fraud detection vs. false alarms
 5. **Validation:** Rigorous testing to ensure honest performance metrics
 
-### Business Impact:
-- **Fraud Prevention:** ~$65,000 annual savings based on detection rate
-- **Operational Efficiency:** 0.6% false alarm rate minimizes investigation workload
-- **Risk Management:** Three-tier risk classification for decision support
-
----
-
-## 🚀 Deployment
-
-### Live Demo
-- **Frontend Dashboard:** Professional fraud detection interface
-- **API Endpoints:** RESTful services for real-time predictions
-- **Cloud Hosting:** Deployed on Vercel for 99.9% uptime
-- **Scalability:** Handles concurrent users and transaction volume
-
-### Deployment Process:
-```bash
-# Deploy to Vercel (free)
-1. Push code to GitHub
-2. Connect repository to Vercel
-3. Automatic deployment with custom domain
-4. Production-ready with HTTPS and CDN
-```
-
----
-
-## 🔮 Future Enhancements
-
-As I continue my studies, I plan to extend this project with:
-
-### Advanced ML Features:
-- **Deep Learning:** Neural networks for complex pattern recognition
-- **Ensemble Methods:** Combining multiple algorithms for better accuracy
-- **Online Learning:** Real-time model updates with new data
-- **Explainable AI:** SHAP values for transparent decision-making
-
-### System Improvements:
-- **Database Integration:** PostgreSQL for transaction history
-- **Authentication:** User management and role-based access
-- **Monitoring:** Advanced logging and performance tracking
-- **Mobile App:** Native iOS/Android applications
-
----
-
-## 📚 References & Learning Resources
-
-### Academic Papers:
-- Random Forest algorithms for fraud detection
-- SMOTE technique for imbalanced datasets
-- ROC-AUC analysis for binary classification
-
-### Technical Documentation:
-- Flask web framework documentation
-- scikit-learn machine learning library
-- Chart.js data visualization
-
-### Industry Best Practices:
-- MLOps for model deployment and monitoring
-- RESTful API design principles
-- Web security and fraud prevention
-
 ---
 
 ## 👨‍🎓 About the Author
@@ -243,27 +181,8 @@ Master of Computer Science Student
 This project represents my journey in applying theoretical computer science concepts to real-world problems. It demonstrates my ability to combine machine learning, software engineering, and data analysis skills to create meaningful solutions.
 
 ### Connect with me:
-- **Email:** [your-email@university.edu]
-- **LinkedIn:** [your-linkedin-profile]
-- **GitHub:** [your-github-username]
+- **Email:** [sandeeptejasundara@gmail.com]
+- **LinkedIn:** [https://www.linkedin.com/in/sundara-sandeepteja/]
+- **GitHub:** [https://github.com/Sandetej]
 
 ---
-
-## 📄 License
-
-This project is developed for educational purposes as part of my Master's degree in Computer Science.
-
-MIT License - See LICENSE file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- **University Faculty:** For guidance on machine learning principles
-- **Open Source Community:** For the amazing tools and libraries
-- **Industry Mentors:** For insights into production ML systems
-- **Fellow Students:** For collaborative learning and feedback
-
----
-
-*"Learning never exhausts the mind."* - Leonardo da Vinci
