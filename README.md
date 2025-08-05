@@ -66,7 +66,7 @@ As a graduate student, this project showcases my ability to:
 - **Responsive Design** - Mobile-friendly interface
 
 ### Deployment:
-- **Vercel** - Serverless deployment platform
+- **Railway** - Serverless deployment platform
 - **Git/GitHub** - Version control and collaboration
 
 ---
@@ -81,7 +81,7 @@ fraud-detection-system/
 |-- fraud-detection.ipynb
 |-- fraudData.csv
 ├── fraud_detector_final.pkl     # Trained ML model
-├── vercel.json                 # Deployment configuration
+├── Procfile                     # Deployment 
 └── static/                     # Frontend files
     ├── index.html              # Main dashboard
     ├── style.css               # Styling and responsive design
